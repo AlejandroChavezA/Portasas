@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Full Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about-styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="location">America/Chihuahua</div>
+      <div class="nav-links">
+        <a href="index.html"><span class="icon">🏠</span> Home</a>
+        <a href="about.html" class="active"
+          ><span class="icon">👤</span> About</a
+        >
+        <a href="#"><span class="icon">💼</span> Work</a>
+        <a href="#"><span class="icon">📝</span> Blog</a>
+        <a href="#"><span class="icon">🖼️</span> Gallery</a>
+      </div>
+      <div class="time" id="current-time">22:35:15</div>
+    </nav>
+
+    <main class="about-container">
+      <header class="about-header">
+        <img
+          src="/img/webp/sas2.webp"
+          alt="profile picture"
+          class="profile-picture"
+        />
+        <h1>About Me</h1>
+      </header>
+
+      <section class="about-content">
+        <h2>¡Hola! Soy Alejandro</h2>
+        <p>
+          Soy un apasionado desarrollador web con intencion de llegar al Full
+          Stack, radicado en México. Me encanta crear experiencias digitales
+          intuitivas y funcionales, combinando diseño atractivo con código
+          limpio y eficiente.
+        </p>
+
+        <h3>Mi Trayectoria</h3>
+        <p>
+          Mi viaje en el desarrollo de software comenzó hace algunos años,
+          cuando participé en mi primer hackathon. Desde entonces, he estado en
+          un camino constante de aprendizaje, siempre dispuesto a adoptar nuevas
+          tecnologías y mejores prácticas.
+        </p>
+
+        <h3>Lo Que Hago</h3>
+        <p>
+          Actualmente estoy desarrollando <span class="project">KepTrack</span>,
+          una app enfocada en la gestión de suscripciones y finanzas personales.
+          Mi trabajo abarca tanto tecnologías front-end como back-end, lo que me
+          permite tener una visión integral del proceso de desarrollo.
+        </p>
+
+        <h3>Fuera del Código</h3>
+        <p>
+          Cuando no estoy programando, suelo trabajar en proyectos personales,
+          participar en hackathones, o explorar las últimas tendencias en
+          tecnología. Creo firmemente en el poder del aprendizaje continuo y en
+          la importancia de la comunidad tecnológica.
+        </p>
+
+        <h3>Conectemos</h3>
+        <p>
+          Siempre estoy abierto a nuevas oportunidades, colaboraciones, o
+          simplemente una buena charla sobre desarrollo web. ¡No dudes en
+          contactarme!
+        </p>
+
+        <div class="social-links">
+          <a href="" class="social-button">
+            <span class="icon">📧</span> Email
+          </a>
+          <a href="#" class="social-button">
+            <span class="icon">💼</span> LinkedIn
+          </a>
+          <a href="https://github.com/AlejandroChavezA" class="social-button">
+            <span class="icon">🐙</span> GitHub
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString("en-US", { hour12: false });
+        document.getElementById("current-time").textContent = timeString;
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
+  </body>
+</html>
