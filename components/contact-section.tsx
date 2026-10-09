@@ -1,61 +1,27 @@
-import { Button } from "@/components/ui/button"
-import { ArrowUpRight } from "lucide-react"
+import PosterLink from "@/components/poster-link"
+import { contact, identity } from "@/lib/content"
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4">
-        <h3 className="text-3xl font-bold mb-12 text-center">Contacto</h3>
-        
-        <div className="max-w-3xl mx-auto text-center space-y-8">
-          <div className="space-y-4">
-            <p className="text-lg text-muted-foreground">
-              ¿Tienes un proyecto en mente? Siempre estoy abierto a discutir nuevas oportunidades y desafíos interesantes.
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="group px-8 py-6 text-base bg-primary hover:bg-primary/90 transition-all duration-500"
-              asChild
-            >
-              <a href="mailto:alex102add@gmail.com">
-                alex102add@gmail.com
-                <ArrowUpRight className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </a>
-            </Button>
-            
-            <Button
-              size="lg"
-              variant="outline"
-              className="group px-8 py-6 text-base"
-              asChild
-            >
-              <a href="tel:+526142087271">
-                +52 614 208 7271
-                <ArrowUpRight className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </a>
-            </Button>
-          </div>
-
-          {/* Social links */}
-          <div className="flex justify-center gap-8 mt-12 text-sm text-muted-foreground">
-            <a 
-              href="https://linkedin.com/in/jose-alejandro-chavez-aguilar" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors duration-300"
-            >
-              LinkedIn
-            </a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">
-              GitHub
-            </a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">
-              Twitter
-            </a>
-          </div>
+    <section id="contacto" className="relative overflow-hidden bg-ink px-6 py-24 text-cream md:px-10 md:py-32">
+      <p
+        aria-hidden
+        className="font-display ghost-type pointer-events-none absolute -bottom-10 left-0 text-[42vw] leading-none text-cream select-none md:text-[22vw]"
+      >
+        SAS
+      </p>
+      <div className="relative z-10 mx-auto max-w-[1280px]">
+        <p className="text-[11px] font-semibold tracking-[0.22em] text-brick uppercase">04 — {contact.kicker}</p>
+        <h2 className="font-display mt-6 max-w-[14ch] text-[clamp(2.8rem,8vw,6.5rem)] text-cream">{contact.title}</h2>
+        <p className="mt-8 max-w-md text-[15px] leading-relaxed text-cream/70">{contact.body}</p>
+        <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <PosterLink href={`mailto:${identity.email}`}>{identity.email}</PosterLink>
+          <PosterLink href={identity.linkedin} variant="invert">
+            LinkedIn
+          </PosterLink>
+          <PosterLink href={identity.phoneHref} variant="invert">
+            {identity.phone}
+          </PosterLink>
         </div>
       </div>
     </section>

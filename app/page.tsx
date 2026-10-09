@@ -1,23 +1,23 @@
 import Header from "@/components/header"
 import HeroSection from "@/components/hero-section"
-import ExperienceSection from "@/components/experience-section"
-import SkillsSection from "@/components/skills-section"
-import EducationSection from "@/components/education-section"
+import WorkSection from "@/components/work-section"
+import CraftSection from "@/components/craft-section"
+import OriginSection from "@/components/origin-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
       <Header />
       <main>
         <HeroSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <EducationSection />
+        <WorkSection />
+        <CraftSection />
+        <OriginSection />
         <ContactSection />
       </main>
       <Footer />
-    </div>
+    </>
   )
 }

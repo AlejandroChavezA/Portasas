@@ -1,141 +1,57 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import Image from "next/image"
+import PosterLink from "@/components/poster-link"
+import StarMark from "@/components/star-mark"
+import { hero, identity } from "@/lib/content"
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center px-6 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-accent/10"></div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-      
-      <div className="relative container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <div className="space-y-8 order-2 lg:order-1">
-            {/* Greeting line */}
-            <div className="space-y-2">
-              <p className="text-sm font-mono text-primary tracking-widest uppercase">
-                ¡Hola! Soy
-              </p>
-            </div>
+    <section id="top" className="relative overflow-hidden px-6 pt-28 pb-16 md:px-10 md:pt-36 md:pb-24">
+      <p
+        aria-hidden
+        className="font-display ghost-type pointer-events-none absolute top-24 -right-8 text-[28vw] leading-none text-ink select-none md:top-16"
+      >
+        SAS
+      </p>
 
-            {/* Name */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
-              <span className="block">JOSÉ ALEJANDRO</span>
-              <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                CHÁVEZ AGUILAR
-              </span>
-            </h1>
-
-            {/* Role */}
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20 text-sm font-medium">
-                Frontend Developer
-              </span>
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full border border-accent/20 text-sm font-medium">
-                React Expert
-              </span>
-              <span className="px-3 py-1 bg-muted text-muted-foreground rounded-full border border-border text-sm font-medium">
-                Full Stack
-              </span>
-            </div>
-
-            {/* Description */}
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
-              Creo experiencias web excepcionales con React, Next.js y arquitectura escalable. 
-              Me apasiona transformar ideas en productos digitales que impactan usuarios reales.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="group px-8 py-6 text-base bg-primary hover:bg-primary/90 transition-all duration-500"
-                onClick={() => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Ver mi trabajo
-                <ArrowDown className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-y-1" />
-              </Button>
-              
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-8 py-6 text-base"
-                asChild
-              >
-                <a href="mailto:alex102add@gmail.com">
-                  <Mail className="mr-2 h-4 w-4" />
-                  Contactar
-                </a>
-              </Button>
-            </div>
-
-            {/* Social links */}
-            <div className="flex gap-4 pt-4">
-              <a 
-                href="https://linkedin.com/in/jose-alejandro-chavez-aguilar" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 border border-border rounded-lg hover:bg-accent transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="p-3 border border-border rounded-lg hover:bg-accent transition-colors"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right content - Image */}
-          <div className="relative order-1 lg:order-2">
-            <div className="relative">
-              {/* Glowing effect behind image */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl scale-110"></div>
-              
-              {/* Image container */}
-              <div className="relative bg-card rounded-2xl p-1 border border-border">
-                <div className="relative overflow-hidden rounded-xl bg-muted/20">
-                  {/* Placeholder for your image */}
-                  <div className="aspect-square w-full max-w-lg mx-auto flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                        <span className="text-4xl font-bold text-white">JAC</span>
-                      </div>
-                      <p className="text-muted-foreground">Tu foto aquí</p>
-                      <p className="text-sm text-muted-foreground/70 mt-2">
-                        Reemplaza con tu imagen personal
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground px-4 py-2 rounded-lg border border-border shadow-lg">
-                <span className="text-sm font-semibold">3+ años</span>
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 bg-accent text-accent-foreground px-4 py-2 rounded-lg border border-border shadow-lg">
-                <span className="text-sm font-semibold">15+ proyectos</span>
-              </div>
-            </div>
+      <div className="relative z-10 mx-auto grid max-w-[1280px] items-end gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div>
+          <p className="mb-6 flex items-center gap-2 text-[11px] font-semibold tracking-[0.22em] text-brick uppercase">
+            <StarMark className="h-3 w-3" />
+            {hero.greeting}
+          </p>
+          <h1 className="font-display text-[clamp(3.2rem,9vw,7rem)] text-ink">
+            <span className="block">{hero.line1}</span>
+            <span className="block text-brick">{hero.line2}</span>
+          </h1>
+          <span className="mt-5 block h-[3px] w-16 bg-brick" />
+          <p className="mt-6 text-[13px] font-semibold tracking-[0.18em] text-ink uppercase">
+            {hero.roles[0]} · {identity.location}
+          </p>
+          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-soft">{hero.lede}</p>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <PosterLink href="#trabajo">{hero.primaryCta}</PosterLink>
+            <PosterLink href={`mailto:${identity.email}`} variant="outline">
+              {hero.secondaryCta}
+            </PosterLink>
           </div>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-muted-foreground font-mono">SCROLL</span>
-          <div className="w-px h-8 bg-gradient-to-b from-muted-foreground/50 to-transparent animate-pulse"></div>
+        <div className="relative">
+          <div className="absolute -top-6 -left-6 hidden h-24 w-24 bg-brick md:block" />
+          <div className="relative border border-ink">
+            <Image
+              src="/images/sas-hero.jpg"
+              alt={identity.name}
+              width={1200}
+              height={900}
+              priority
+              className="aspect-[4/5] w-full object-cover object-[50%_20%] grayscale-[20%]"
+            />
+          </div>
+          <div className="mt-3 flex items-center justify-between text-[11px] font-semibold tracking-[0.18em] text-ink uppercase">
+            <span>CHH · MX</span>
+            <span>2026</span>
+          </div>
         </div>
       </div>
     </section>

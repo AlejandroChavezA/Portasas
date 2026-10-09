@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sas — Design Book v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Syne:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:  #F4EDD8;
+  --cream2: #EAE0C6;
+  --cream3: #DDD3B4;
+  --dark:   #191210;
+  --dark2:  #2B1F1B;
+  --red:    #C23020;
+  --red2:   #D64030;
+  --muted:  #7B6E62;
+  --fd: 'Barlow Condensed', sans-serif;
+  --fb: 'Inter', sans-serif;
+  --fs: 'Syne', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--dark);font-family:var(--fb);overflow-x:hidden;}
+
+/* ── Grain ── */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.048;
+}
+
+/* ── Layout ── */
+.wrap{max-width:980px;margin:0 auto;padding:0 52px;}
+section{padding:76px 0;border-top:1.5px solid var(--dark);}
+
+/* ── COVER ── */
+.cover{
+  min-height:100svh;padding:36px 52px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.cover-bar{display:flex;justify-content:space-between;}
+.cover-bar span{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);}
+.cover-name{
+  font-family:var(--fd);
+  font-size:clamp(88px,15vw,192px);
+  font-weight:900;text-transform:uppercase;line-height:.86;
+  color:var(--dark);position:relative;z-index:2;
+  margin-top:auto;margin-bottom:28px;
+}
+.cover-name .r{color:var(--red);display:block;}
+.cover-ghost{
+  position:absolute;right:-18px;bottom:-70px;
+  font-family:var(--fd);font-size:min(35vw,340px);font-weight:900;
+  color:transparent;-webkit-text-stroke:1px var(--cream3);
+  line-height:1;user-select:none;pointer-events:none;z-index:1;
+  text-transform:uppercase;
+}
+.cover-foot{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:2;}
+.cover-desc{font-size:13px;color:var(--muted);max-width:260px;line-height:1.65;}
+.cover-tag{background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;}
+
+/* ── Atoms ── */
+.lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);}
+.sh{display:flex;align-items:baseline;gap:18px;margin-bottom:48px;}
+.sh-n{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--red);letter-spacing:.1em;}
+.sh-t{font-family:var(--fd);font-size:clamp(46px,7vw,84px);font-weight:900;text-transform:uppercase;line-height:.92;}
+.body-p{font-size:14px;line-height:1.72;color:var(--dark);max-width:580px;}
+
+/* ── Section 01 Concepto ── */
+.cq{font-family:var(--fd);font-size:clamp(28px,4.5vw,54px);font-weight:700;line-height:1.05;max-width:700px;margin-bottom:28px;}
+.cq em{color:var(--red);font-style:normal;}
+.cpills{display:flex;border:1.5px solid var(--dark);margin-top:40px;}
+.cpill{flex:1;padding:22px 26px;border-right:1.5px solid var(--dark);}
+.cpill:last-child{border-right:none;}
+.cpill-w{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;display:block;}
+.cpill-d{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.5;}
+
+/* ── Section 02 Color ── */
+.cg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;border:1.5px solid var(--dark);overflow:hidden;}
+.sw{padding:22px;display:flex;flex-direction:column;justify-content:flex-end;min-height:190px;border-right:1.5px solid var(--dark);}
+.sw:last-child{border-right:none;}
+.sw-name{font-family:var(--fb);font-size:14px;font-weight:700;}
+.sw-hex{font-size:12px;font-weight:500;letter-spacing:.05em;margin-top:3px;}
+.sw-use{font-size:11px;margin-top:7px;opacity:.7;line-height:1.45;}
+.sw-cream{background:#F4EDD8;color:var(--dark);}
+.sw-red{background:#C23020;color:#fff;}
+.sw-dark{background:#191210;color:#F4EDD8;}
+.sw-red2{background:#D64030;color:#fff;}
+.crules{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;}
+.cr{padding:14px 18px;background:var(--cream2);border:1px solid var(--cream3);}
+.cr-t{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
+.cr-d{font-size:12px;color:var(--muted);line-height:1.52;}
+
+/* ── Section 03 Tipo ── */
+.tbox{border:1.5px solid var(--cream3);margin-bottom:22px;overflow:hidden;}
+.th{background:var(--cream2);padding:11px 22px;border-bottom:1.5px solid var(--cream3);display:flex;justify-content:space-between;align-items:center;}
+.th-l{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+.tbadge{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;}
+.tbadge.rec{background:var(--red);color:#fff;}
+.tbadge.alt{border:1px solid var(--dark);color:var(--dark);}
+.tb{padding:30px;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+.fd-sample{font-family:var(--fd);font-size:58px;font-weight:900;text-transform:uppercase;line-height:.9;margin-bottom:10px;}
+.fn{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.55;}
+.fn strong{color:var(--dark);}
+.tscale{margin-top:48px;border:1.5px solid var(--cream3);}
+.ts{display:grid;grid-template-columns:108px 1fr 148px;align-items:center;gap:20px;padding:13px 22px;border-bottom:1.5px solid var(--cream3);}
+.ts:last-child{border-bottom:none;}
+.ts-m{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+.ts-u{font-size:11px;color:var(--muted);text-align:right;}
+
+/* ── Section 04 Espaciado ── */
+.spg{border:1.5px solid var(--cream3);}
+.spr{display:grid;grid-template-columns:60px 1fr 88px 164px;align-items:center;gap:14px;padding:12px 22px;border-bottom:1.5px solid var(--cream3);}
+.spr:last-child{border-bottom:none;}
+.sp-l{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.05em;}
+.sp-b{height:4px;background:var(--red);border-radius:0;}
+.sp-v{font-size:12px;font-weight:600;}
+.sp-u{font-size:11px;color:var(--muted);}
+
+/* ── Section 05 Componentes ── */
+.cblock{border:1.5px solid var(--cream3);padding:26px 28px;background:var(--cream2);margin-bottom:18px;}
+.clbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;}
+.note{font-size:11px;color:var(--muted);margin-top:10px;display:block;line-height:1.55;}
+
+/* Buttons */
+.brow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;line-height:1;}
+.btn-p{background:var(--red);color:#fff;}
+.btn-o{background:transparent;border:1.5px solid var(--dark);color:var(--dark);}
+.btn-d{background:var(--dark);color:var(--cream);}
+.btn-t{background:transparent;color:var(--dark);padding-left:0;padding-right:0;text-decoration:underline;text-underline-offset:4px;}
+
+/* Tags */
+.tags{display:flex;flex-wrap:wrap;gap:8px;}
+.tag{display:inline-block;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border:1.5px solid var(--dark);}
+.tag-r{background:var(--red);border-color:var(--red);color:#fff;}
+.tag-d{background:var(--dark);border-color:var(--dark);color:var(--cream);}
+
+/* Nav */
+.navsamp{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;background:var(--cream);border:1.5px solid var(--dark);}
+.navbrand{font-family:var(--fd);font-size:22px;font-weight:900;text-transform:uppercase;}
+.navlinks{display:flex;gap:22px;list-style:none;}
+.navlinks li{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.navlinks .active{color:var(--red);}
+
+/* Card */
+.card{display:grid;grid-template-columns:190px 1fr;border:1.5px solid var(--dark);overflow:hidden;}
+.card-img{background:var(--dark);display:flex;align-items:center;justify-content:center;min-height:160px;}
+.card-n{font-family:var(--fd);font-size:60px;font-weight:900;color:var(--red);}
+.card-c{padding:22px;border-left:1.5px solid var(--dark);display:flex;flex-direction:column;justify-content:space-between;}
+.card-role{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);}
+.card-t{font-family:var(--fd);font-size:30px;font-weight:900;text-transform:uppercase;line-height:1.02;margin:6px 0 10px;}
+.card-d{font-size:12px;color:var(--muted);line-height:1.55;}
+.card-arr{font-size:22px;color:var(--red);margin-top:16px;}
+
+/* ── Section 06 Deco ── */
+.dg{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--cream3);}
+.di{padding:24px 20px;border-right:1.5px solid var(--cream3);border-bottom:1.5px solid var(--cream3);}
+.di:nth-child(4n){border-right:none;}
+.di:nth-last-child(-n+4){border-bottom:none;}
+.dv{font-size:38px;line-height:1;margin-bottom:10px;}
+.dn{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
+.dd{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.45;}
+
+/* ── Section 07 Textura ── */
+.dark-demo{
+  background:var(--dark);padding:48px 52px;
+  position:relative;overflow:hidden;
+  margin:0 -52px;
+}
+.dark-demo .ghost{
+  position:absolute;right:-20px;bottom:-60px;
+  font-family:var(--fd);font-size:min(28vw,240px);font-weight:900;
+  color:transparent;-webkit-text-stroke:1px var(--dark2);
+  text-transform:uppercase;line-height:1;user-select:none;z-index:0;
+}
+.dark-demo .lbl{color:var(--red);}
+.dark-demo .q{
+  font-family:var(--fd);font-size:clamp(40px,6vw,60px);font-weight:900;
+  text-transform:uppercase;color:var(--cream);line-height:1;
+  margin:8px 0 28px;position:relative;z-index:1;
+}
+
+/* ── Colofón ── */
+.colo{padding:60px 0 80px;display:flex;justify-content:space-between;align-items:flex-end;border-top:1.5px solid var(--dark);}
+.colo-big{font-family:var(--fd);font-size:clamp(56px,8.5vw,96px);font-weight:900;text-transform:uppercase;line-height:.88;}
+.colo-big span{color:var(--red);}
+.colo-m{text-align:right;font-size:11px;color:var(--muted);line-height:1.9;letter-spacing:.04em;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ COVER ═══════════ -->
+<div class="cover">
+  <div class="cover-bar">
+    <span>Design Book · Vol. 01</span>
+    <span>Alejandro "Sas" · Portafolio Personal · 2026</span>
+  </div>
+  <div class="cover-ghost" aria-hidden="true">S</div>
+  <div class="cover-name">
+    ALEJANDRO
+    <span class="r">SAS</span>
+  </div>
+  <div class="cover-foot">
+    <p class="cover-desc">Lineamientos visuales para el portafolio personal. Ingeniería × Diseño × Chihuahua, MX.</p>
+    <div class="cover-tag">Design System v1</div>
+  </div>
+</div>
+
+<!-- ═══════════ CONTENIDO ═══════════ -->
+<div class="wrap">
+
+<!-- ── 01 CONCEPTO ── -->
+<section>
+  <div class="sh"><span class="sh-n">01 —</span><h2 class="sh-t">Concepto</h2></div>
+  <p class="cq">Un portafolio de developer que habla con la <em>fuerza de un poster.</em></p>
+  <p class="body-p">El estilo mezcla la energía editorial de los flyers retro-industriales con la estructura limpia que exige un portafolio técnico. No es una plantilla de Notion — es una presentación con carácter propio. Cálida como el rojo que la define, precisa como el código que la construye.</p>
+  <div class="cpills">
+    <div class="cpill">
+      <span class="cpill-w">Bold</span>
+      <span class="cpill-d">Tipografía pesada, jerarquía clara. Si no se lee desde lejos, no es suficientemente grande.</span>
+    </div>
+    <div class="cpill">
+      <span class="cpill-w">Warm</span>
+      <span class="cpill-d">Crema, rojo ladrillo, oscuro. Sin azules de tech genérico. Colores que se sienten análogos, impresos.</span>
+    </div>
+    <div class="cpill">
+      <span class="cpill-w">Crisp</span>
+      <span class="cpill-d">Grid preciso, bordes rectos, ángulos a 90°. Todo en su lugar exacto — el caos es en la tipografía.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 COLOR ── -->
+<section>
+  <div class="sh"><span class="sh-n">02 —</span><h2 class="sh-t">Color</h2></div>
+  <div class="cg">
+    <div class="sw sw-cream">
+      <span class="sw-name">Cream</span>
+      <span class="sw-hex">#F4EDD8</span>
+      <span class="sw-use">Fondo principal · Superficie base · Todo el sitio</span>
+    </div>
+    <div class="sw sw-red">
+      <span class="sw-name">Red</span>
+      <span class="sw-hex">#C23020</span>
+      <span class="sw-use">Acento principal · CTAs · Labels · Énfasis</span>
+    </div>
+    <div class="sw sw-dark">
+      <span class="sw-name">Dark</span>
+      <span class="sw-hex">#191210</span>
+      <span class="sw-use">Texto · Fondos de contraste · Bordes principales</span>
+    </div>
+    <div class="sw sw-red2">
+      <span class="sw-name">Red Alt</span>
+      <span class="sw-hex">#D64030</span>
+      <span class="sw-use">Hover states · Variante activa del rojo</span>
+    </div>
+  </div>
+  <div class="crules">
+    <div class="cr">
+      <div class="cr-t">Rojo = jerarquía</div>
+      <div class="cr-d">Labels, subrayados, botones primarios, la marca. Cuando aparece en exceso, pierde su peso. Usarlo con intención: máx. 3–4 puntos de acento por sección.</div>
+    </div>
+    <div class="cr-t" style="display:none;"></div>
+    <div class="cr">
+      <div class="cr-t">Fondo oscuro: contraste dramático</div>
+      <div class="cr-d">Dark solo para secciones de alto impacto: CTA final, footer, hero alternativo. Máx. 1–2 veces por página. Su poder depende de la escasez.</div>
+    </div>
+    <div class="cr">
+      <div class="cr-t">Grain sobre todo</div>
+      <div class="cr-d">Textura de ruido a 4–6% de opacidad en todos los fondos. La diferencia entre una web genérica y una pieza diseñada. Obligatorio.</div>
+    </div>
+    <div class="cr">
+      <div class="cr-t">Sin azules ni morados</div>
+      <div class="cr-d">La paleta es deliberadamente cálida. Evitar colores fríos — rompen el mood analógico. Si se necesita más variación, escalar hacia el ocre o el crema oscuro.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 03 TIPOGRAFÍA ── -->
+<section>
+  <div class="sh"><span class="sh-n">03 —</span><h2 class="sh-t">Tipografía</h2></div>
+
+  <div class="tbox">
+    <div class="th">
+      <span class="th-l">Opción A — Barlow Condensed + Inter</span>
+      <span class="tbadge rec">★ Recomendada</span>
+    </div>
+    <div class="tb">
+      <div class="g2">
+        <div style="padding-right:28px;border-right:1.5px solid var(--cream3);">
+          <div class="lbl" style="margin-bottom:12px;">Display / Headers</div>
+          <div class="fd-sample" style="font-family:'Barlow Condensed',sans-serif;">ALEJANDRO</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--muted);margin-top:8px;letter-spacing:.02em;">
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz · 0123456789
+          </div>
+          <p class="fn"><strong>Barlow Condensed Black 900</strong> — directo del mundo del poster. Condensada, pesada, no deja espacio a lo tímido. Gratis en Google Fonts.</p>
+        </div>
+        <div>
+          <div class="lbl" style="margin-bottom:12px;">Body / UI</div>
+          <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px;">Engineering × Design</div>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:var(--muted);line-height:1.68;max-width:340px;">Software developer y Tech Lead en sistemas web y visión por computadora. Chihuahua, MX.</p>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);margin-top:12px;">Inter Regular · Medium · SemiBold</div>
+          <p class="fn"><strong>Inter</strong> — el estándar de pantalla. Legible a cualquier tamaño. Gratis, perfecta para UI técnico.</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.62;margin-top:20px;padding-top:20px;border-top:1.5px solid var(--cream3);"><strong style="color:var(--dark);">¿Por qué?</strong> Barlow Condensed replica exactamente la energía de los posters de referencia. Inter garantiza legibilidad perfecta para el body y los textos de UI. Dos familias con roles distintos, sin conflicto visual.</p>
+    </div>
+  </div>
+
+  <div class="tbox">
+    <div class="th">
+      <span class="th-l">Opción B — Syne + Inter</span>
+      <span class="tbadge alt">Alternativa</span>
+    </div>
+    <div class="tb">
+      <div class="g2">
+        <div style="padding-right:28px;border-right:1.5px solid var(--cream3);">
+          <div class="lbl" style="margin-bottom:12px;">Display — Syne ExtraBold</div>
+          <div style="font-family:'Syne',sans-serif;font-size:52px;font-weight:800;text-transform:uppercase;line-height:.9;margin-bottom:10px;">ALEJANDRO</div>
+          <div style="font-family:'Syne',sans-serif;font-size:12px;color:var(--muted);margin-top:10px;">Syne ExtraBold 800 · Regular 400</div>
+          <p class="fn"><strong>Syne</strong> — geométrica, ligeramente irregular. Muy usada en portafolios dev/design 2024–26. Gratis en Google Fonts.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-size:13px;color:var(--muted);line-height:1.65;">Usar si prefieres un feel más <em>tech creativo</em> y menos <em>poster retro</em>. Pierde algo del peso gráfico de las referencias, pero se siente más "agencia digital actual".<br><br>Body igual que la opción A: <strong style="color:var(--dark);">Inter</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-top:48px;margin-bottom:14px;">Escala tipográfica — sistema Barlow Condensed + Inter</div>
+  <div class="tscale">
+    <div class="ts">
+      <div class="ts-m">96px · Black 900</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;text-transform:uppercase;line-height:1;">HERO DISPLAY</div>
+      <div class="ts-u">Nombre en hero, palabras clave</div>
+    </div>
+    <div class="ts">
+      <div class="ts-m">48px · Black 900</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;text-transform:uppercase;line-height:1;">Proyectos</div>
+      <div class="ts-u">Títulos de sección</div>
+    </div>
+    <div class="ts">
+      <div class="ts-m">24px · Bold 700</div>
+      <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:700;">Sistema de Gestión de Lotes</div>
+      <div class="ts-u">Títulos de proyecto</div>
+    </div>
+    <div class="ts">
+      <div class="ts-m">16px · Medium 500</div>
+      <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:500;">Ingeniería Informática · Chihuahua</div>
+      <div class="ts-u">Subtítulos, nav</div>
+    </div>
+    <div class="ts">
+      <div class="ts-m">14px · Regular 400</div>
+      <div style="font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);line-height:1.65;max-width:460px;">Tech Lead en proyectos con clientes externos, especializado en sistemas web y visión por computadora.</div>
+      <div class="ts-u">Body text, descripciones</div>
+    </div>
+    <div class="ts">
+      <div class="ts-m">11px · SemiBold 600</div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">REACT · PYTHON · FASTAPI · POSTGRESQL</div>
+      <div class="ts-u">Labels, tags, captions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 ESPACIADO ── -->
+<section>
+  <div class="sh"><span class="sh-n">04 —</span><h2 class="sh-t">Espaciado</h2></div>
+  <p class="body-p" style="margin-bottom:28px;"><strong>Base unit: 8px.</strong> Todo el espaciado es múltiplo de 8. El grid se vuelve predecible y el aire entre elementos se lee intencional — no random.</p>
+  <div class="spg">
+    <div class="spr"><span class="sp-l">4px</span><div class="sp-b" style="width:4px"></div><span class="sp-v">0.5×</span><span class="sp-u">Gap micro — íconos, chips internos</span></div>
+    <div class="spr"><span class="sp-l">8px</span><div class="sp-b" style="width:8px"></div><span class="sp-v">1× base</span><span class="sp-u">Gaps internos de componentes</span></div>
+    <div class="spr"><span class="sp-l">16px</span><div class="sp-b" style="width:16px"></div><span class="sp-v">2×</span><span class="sp-u">Padding de componentes UI</span></div>
+    <div class="spr"><span class="sp-l">24px</span><div class="sp-b" style="width:24px"></div><span class="sp-v">3×</span><span class="sp-u">Gap entre elementos en el mismo bloque</span></div>
+    <div class="spr"><span class="sp-l">40px</span><div class="sp-b" style="width:40px"></div><span class="sp-v">5×</span><span class="sp-u">Separación entre grupos de contenido</span></div>
+    <div class="spr"><span class="sp-l">80px</span><div class="sp-b" style="width:80px"></div><span class="sp-v">10×</span><span class="sp-u">Padding de secciones principales</span></div>
+    <div class="spr"><span class="sp-l">120px+</span><div class="sp-b" style="width:120px"></div><span class="sp-v">15×+</span><span class="sp-u">Hero, separadores dramáticos</span></div>
+  </div>
+</section>
+
+<!-- ── 05 COMPONENTES ── -->
+<section>
+  <div class="sh"><span class="sh-n">05 —</span><h2 class="sh-t">Componentes</h2></div>
+
+  <div class="cblock">
+    <div class="clbl">Navegación</div>
+    <div class="navsamp">
+      <span class="navbrand">SAS ★</span>
+      <ul class="navlinks">
+        <li class="active">Inicio</li>
+        <li>Proyectos</li>
+        <li>Sobre mí</li>
+        <li>Contacto</li>
+      </ul>
+      <button class="btn btn-p" style="padding:8px 16px;font-size:11px;">Hablemos →</button>
+    </div>
+    <small class="note">★ La estrella de 8 puntas funciona como símbolo del logo. El nombre en Barlow Condensed Bold, no Regular. Sin border-radius en ningún lugar.</small>
+  </div>
+
+  <div class="cblock">
+    <div class="clbl">Botones</div>
+    <div class="brow">
+      <button class="btn btn-p">Ver proyectos →</button>
+      <button class="btn btn-o">Descargar CV</button>
+      <button class="btn btn-d">Contáctame →</button>
+      <button class="btn btn-t">Ver todos →</button>
+    </div>
+    <small class="note">Cero border-radius. Todo angular — las esquinas redondeadas no van con este estilo editorial. Casing: todo en mayúsculas con letter-spacing.</small>
+  </div>
+
+  <div class="cblock">
+    <div class="clbl">Tags / Tecnologías</div>
+    <div class="tags">
+      <span class="tag tag-r">Tech Lead</span>
+      <span class="tag">React</span>
+      <span class="tag">Python</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">OpenCV</span>
+      <span class="tag tag-d">Full Stack</span>
+      <span class="tag">Computer Vision</span>
+      <span class="tag">Node.js</span>
+    </div>
+    <small class="note">Mayúsculas, sin border-radius, borde del color del texto. Rojo para roles/destacados, oscuro para categorías, vacío para tecnologías específicas.</small>
+  </div>
+
+  <div class="cblock" style="padding:22px;">
+    <div class="clbl">Card de proyecto</div>
+    <div class="card">
+      <div class="card-img">
+        <span class="card-n">01</span>
+      </div>
+      <div class="card-c">
+        <div>
+          <span class="card-role">Sistema Web · Tech Lead</span>
+          <div class="card-t">Sistema de Gestión de Lotes</div>
+          <p class="card-d">Trazabilidad para manufactura, dashboard en tiempo real e integración con ERP existente. Chihuahua, MX.</p>
+        </div>
+        <div>
+          <div class="tags" style="margin-top:12px;">
+            <span class="tag" style="font-size:9px;">React</span>
+            <span class="tag" style="font-size:9px;">Python</span>
+            <span class="tag" style="font-size:9px;">PostgreSQL</span>
+          </div>
+          <div class="card-arr">→</div>
+        </div>
+      </div>
+    </div>
+    <small class="note">El número del proyecto en display grande es el elemento visual. Fondo oscuro = número rojo = identidad propia de cada proyecto. Sin thumbnail genérico.</small>
+  </div>
+</section>
+
+<!-- ── 06 LENGUAJE DECORATIVO ── -->
+<section>
+  <div class="sh"><span class="sh-n">06 —</span><h2 class="sh-t">Lenguaje Decorativo</h2></div>
+  <p class="body-p" style="margin-bottom:30px;">Elementos simples, geométricos, tomados directamente de las referencias visuales. No hay ornamento por ornamento — cada pieza cumple un rol específico en el sistema.</p>
+  <div class="dg">
+    <div class="di">
+      <div class="dv" style="color:var(--red);">★</div>
+      <div class="dn">Estrella / Logo mark</div>
+      <div class="dd">Símbolo de marca, separador en nav, acento en sección headers</div>
+    </div>
+    <div class="di">
+      <div class="dv" style="color:var(--red);">→</div>
+      <div class="dn">Flecha</div>
+      <div class="dd">CTAs, "ver más", navegación entre proyectos, todos los links</div>
+    </div>
+    <div class="di">
+      <div class="dv" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;color:var(--cream3);font-size:48px;line-height:1;">SAS</div>
+      <div class="dn">Texto fantasma</div>
+      <div class="dd">Palabra enorme detrás del contenido, stroke sin fill, como en las referencias</div>
+    </div>
+    <div class="di">
+      <div class="dv">
+        <div style="width:48px;height:3px;background:var(--red);margin-top:16px;"></div>
+      </div>
+      <div class="dn">Línea roja</div>
+      <div class="dd">Debajo de títulos principales, separadores de sección, énfasis tipográfico</div>
+    </div>
+    <div class="di">
+      <div class="dv" style="font-size:18px;color:var(--cream3);letter-spacing:6px;line-height:1.3;">· · ·<br>· · ·<br>· · ·</div>
+      <div class="dn">Grid de puntos</div>
+      <div class="dd">Fondo textural, elemento espacial, evoca planos técnicos y blueprints</div>
+    </div>
+    <div class="di">
+      <div class="dv" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:52px;color:var(--red);line-height:1;">01</div>
+      <div class="dn">Numeración display</div>
+      <div class="dd">Número grande en cards de proyecto — le da identidad tipográfica propia a cada uno</div>
+    </div>
+    <div class="di">
+      <div class="dv" style="margin-top:4px;display:inline-block;border:1.5px solid var(--dark);padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;">2026</div>
+      <div class="dn">Badge angular</div>
+      <div class="dd">Año, ubicación, estado del proyecto. Siempre sin radius, siempre en mayúsculas</div>
+    </div>
+    <div class="di">
+      <div class="dv" style="font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:-.01em;">CHH<br><span style="color:var(--red);">MX</span></div>
+      <div class="dn">Texto ubicación</div>
+      <div class="dd">Datos de contacto o ubicación en clave tipográfica — no como texto corrido</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 07 TEXTURA Y SENSACIÓN ── -->
+<section>
+  <div class="sh"><span class="sh-n">07 —</span><h2 class="sh-t">Textura</h2></div>
+  <div class="g2" style="margin-bottom:44px;">
+    <div>
+      <div class="lbl" style="margin-bottom:14px;">Con grain — obligatorio</div>
+      <div style="border:1.5px solid var(--cream3);min-height:150px;display:flex;align-items:center;justify-content:center;background:var(--cream2);position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22%2F%3E%3C%2Ffilter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22%2F%3E%3C%2Fsvg%3E');opacity:.07;"></div>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;text-transform:uppercase;position:relative;z-index:1;">POSTER FEEL ✓</span>
+      </div>
+      <small class="note">SVG feTurbulence fractalNoise · baseFrequency 0.85 · opacity 4–7%</small>
+    </div>
+    <div>
+      <div class="lbl" style="margin-bottom:14px;">Sin grain — no usar</div>
+      <div style="border:1.5px solid var(--cream3);min-height:150px;display:flex;align-items:center;justify-content:center;background:#fff;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;text-transform:uppercase;color:var(--muted);">GENERIC WEB ✗</span>
+      </div>
+      <small class="note">Sin grain, el mismo contenido se ve plano y genérico. El fondo nunca debe ser #fff puro.</small>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-bottom:14px;">Sección oscura — CTA / remate visual</div>
+  <div class="dark-demo">
+    <div class="ghost" aria-hidden="true">SAS</div>
+    <span class="lbl">¿Tienes un proyecto?</span>
+    <div class="q">Trabajemos<br>juntos.</div>
+    <div style="position:relative;z-index:1;">
+      <button class="btn btn-p">Contáctame →</button>
+    </div>
+  </div>
+  <small class="note" style="margin-top:12px;">El texto fantasma en stroke crea profundidad sin recargar la sección. Va al final de la página — es el remate visual más fuerte de todo el portafolio.</small>
+</section>
+
+</div><!-- /wrap -->
+
+<!-- ═══════════ COLOFÓN ═══════════ -->
+<div class="wrap">
+  <div class="colo">
+    <div>
+      <div class="colo-big">ALEJANDRO<br><span>SAS</span></div>
+      <div class="lbl" style="margin-top:18px;">Portafolio · 2026 · Chihuahua, MX</div>
+    </div>
+    <div class="colo-m">
+      Design Book v1.0 · Octubre 2026<br>
+      —<br>
+      Tipografía: Barlow Condensed + Inter<br>
+      Display: Syne (opción alternativa)<br>
+      —<br>
+      Crema #F4EDD8 · Rojo #C23020 · Dark #191210<br>
+      Base unit: 8px · Sin border-radius<br>
+      Grain 4–7% sobre todos los fondos<br>
+      —<br>
+      Para uso del desarrollador · CHH, MX
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

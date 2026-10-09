@@ -1,18 +1,18 @@
+import StarMark from "@/components/star-mark"
+import { identity } from "@/lib/content"
+
 export default function Footer() {
-      return (
-        <footer className="py-12 px-6 border-t border-border">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} José Alejandro Chávez Aguilar</p>
-    
-              <div className="flex items-center gap-2 text-sm text-muted-foreground/60">
-                <span>Desarrollador Frontend</span>
-                <span className="text-primary">·</span>
-                <span className="font-mono text-xs">v1.0</span>
-              </div>
-            </div>
-          </div>
-        </footer>
-      )
-    }
-    
+  return (
+    <footer className="bg-ink px-6 py-8 text-cream md:px-10">
+      <div className="mx-auto flex max-w-[1280px] flex-col items-start justify-between gap-3 border-t border-cream/20 pt-8 sm:flex-row sm:items-center">
+        <p className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] uppercase">
+          © {new Date().getFullYear()} {identity.short}
+          <StarMark className="h-3 w-3 text-brick" />
+        </p>
+        <p className="text-[11px] font-semibold tracking-[0.16em] text-cream/60 uppercase">
+          {identity.role} · CHH, MX
+        </p>
+      </div>
+    </footer>
+  )
+}
