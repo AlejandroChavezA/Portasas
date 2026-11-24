@@ -1,17 +1,19 @@
 import Image from "next/image"
 import { identity, origin } from "@/lib/content"
+import SectionTag from "@/components/section-tag"
 
 export default function OriginSection() {
   return (
     <section id="origen" className="relative scroll-mt-24 px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto grid max-w-[1280px] items-center gap-12 md:grid-cols-2">
         <div>
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-brick uppercase">03 — Origen</p>
+          <SectionTag label="Origen" />
           <h2 className="font-display mt-4 text-[clamp(2.4rem,6vw,4.5rem)] text-ink">{origin.title}</h2>
           <span className="mt-5 block h-[3px] w-16 bg-brick" />
           <p className="mt-8 text-lg text-ink">{origin.school}</p>
           <p className="mt-2 text-[12px] font-semibold tracking-[0.16em] text-ink-soft uppercase">
-            {origin.period} · Promedio {origin.gpa}
+            <span className="block">{origin.period}</span>
+            <span className="block">Promedio {origin.gpa}</span>
           </p>
           <div className="mt-8 space-y-4">
             {origin.notes.map((note) => (

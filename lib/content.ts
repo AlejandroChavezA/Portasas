@@ -1,7 +1,7 @@
 export const identity = {
   name: "José Alejandro Chávez Aguilar",
   short: "SAS",
-  role: "Frontend developer",
+  role: "Full Stack Developer",
   location: "Chihuahua, México",
   email: "alex102add@gmail.com",
   phone: "+52 614 208 7271",
@@ -10,20 +10,26 @@ export const identity = {
 } as const
 
 export const nav = [
-  { href: "#trabajo", label: "Trabajo" },
-  { href: "#oficio", label: "Oficio" },
-  { href: "#origen", label: "Origen" },
+  { href: "#top", label: "Inicio" },
+  { href: "#trabajo", label: "Proyectos" },
+  { href: "#origen", label: "Sobre mí" },
   { href: "#contacto", label: "Contacto" },
 ] as const
 
 export const hero = {
-  greeting: "Hola — soy",
-  line1: "José Alejandro",
-  line2: "Chávez Aguilar",
-  roles: ["Frontend", "React", "Producto"],
-  lede: "Hago interfaces que se sienten hechas a mano: React, Next.js y arquitectura que aguanta uso real.",
-  primaryCta: "Ver el trabajo",
-  secondaryCta: "Escribirme",
+  kicker: "Alejandro Sas",
+  mark: "SAS",
+  title: "Full Stack Developer",
+  lede: "Ingeniería × Diseño × Tecnología. Construyendo ideas en la intersección de código, personas y propósito.",
+  primaryCta: "Ver proyectos",
+  available: "Disponible para",
+  availableLines: ["Proyectos — Colaboraciones", "Oportunidades"],
+  stack: [
+    "React · Node.js · Python · FastAPI",
+    "PostgreSQL · MongoDB · Docker",
+    "Computer Vision · Full Stack",
+  ],
+  values: ["Código", "Ideas", "Personas", "Impacto"],
 } as const
 
 export const work = [

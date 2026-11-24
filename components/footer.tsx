@@ -10,7 +10,8 @@ export default function Footer() {
           <StarMark className="h-3 w-3 text-brick" />
         </p>
         <p className="text-[11px] font-semibold tracking-[0.16em] text-cream/60 uppercase">
-          {identity.role} · CHH, MX
+          <span className="block">{identity.role}</span>
+          <span className="block">{identity.location}</span>
         </p>
       </div>
     </footer>

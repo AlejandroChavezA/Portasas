@@ -55,9 +55,8 @@
 
 .font-display {
   font-family: var(--font-display);
-  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 0.9;
 }
 
@@ -66,9 +65,11 @@
   position: fixed;
   inset: 0;
   z-index: 80;
-  opacity: 0.055;
+  opacity: 0.3;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("/textures/grain.webp");
+  background-repeat: repeat;
+  background-size: 420px auto;
 }
 
 .dot-grid {
@@ -80,6 +81,40 @@
 .ghost-type {
   color: transparent;
   -webkit-text-stroke: 1px color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.sas-mark-wrap {
+  white-space: nowrap;
+  transform: scaleX(1.24);
+  transform-origin: left;
+}
+
+.sas-mark {
+  font-family: var(--font-anton), ui-sans-serif, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(8.75rem, 33.75vw, 23.1rem);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  display: inline-block;
+  background-image: linear-gradient(185deg, #ee7a3c 0%, #d23a22 42%, #b42214 78%, #7c140c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: contrast(1.3);
+  mask-mode: luminance;
+  -webkit-mask-mode: luminance;
+  mask-repeat: repeat;
+  -webkit-mask-repeat: repeat;
+  mask-size: 260px auto;
+  -webkit-mask-size: 260px auto;
+}
+
+.sas-mark-2 {
+  mask-image: url("/textures/scratch-blotch.webp");
+  -webkit-mask-image: url("/textures/scratch-blotch.webp");
+  mask-position: 60% 20%;
+  -webkit-mask-position: 60% 20%;
 }
 
 @media (prefers-reduced-motion: reduce) {

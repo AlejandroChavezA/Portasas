@@ -1,7 +1,8 @@
 export default function StarMark({ className = "h-3 w-3" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden fill="currentColor">
-      <path d="M12 0 13.4 8.4 22 6l-6 6 6 6-8.6-2.4L12 24l-1.4-8.4L2 18l6-6-6-6 8.6 2.4z" />
+    <svg viewBox="0 0 64 64" className={className} aria-hidden fill="currentColor">
+      <path d="M32 0 35.6 24.4 64 32 35.6 39.6 32 64 28.4 39.6 0 32 28.4 24.4z" />
+      <path d="M54.6 9.4 36.8 27.2 54.6 54.6 36.8 36.8 9.4 54.6 27.2 36.8 9.4 9.4 27.2 27.2z" />
     </svg>
   )
 }

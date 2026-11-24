@@ -1,10 +1,11 @@
 import { work } from "@/lib/content"
+import SectionTag from "@/components/section-tag"
 
 export default function WorkSection() {
   return (
     <section id="trabajo" className="relative scroll-mt-24 px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1280px]">
-        <p className="text-[11px] font-semibold tracking-[0.22em] text-brick uppercase">01 — Trabajo</p>
+        <SectionTag label="Trabajo" />
         <h2 className="font-display mt-4 max-w-3xl text-[clamp(2.4rem,6vw,4.5rem)] text-ink">
           Piezas que salieron a la calle, no a un mock.
         </h2>

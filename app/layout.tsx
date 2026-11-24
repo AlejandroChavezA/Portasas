@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Barlow_Condensed, Inter } from "next/font/google"
+import { Anton, Barlow_Condensed, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import SiteFrame from "@/components/site-frame"
 import "./globals.css"
@@ -12,10 +12,16 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 })
 
-const barlow = Barlow_Condensed({
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
   variable: "--font-barlow",
-  weight: ["700", "900"],
+  weight: ["600", "700", "900"],
+})
+
+const anton = Anton({
+  subsets: ["latin"],
+  variable: "--font-anton",
+  weight: "400",
 })
 
 export const metadata: Metadata = {
@@ -35,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} ${barlow.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${barlowCondensed.variable} ${anton.variable} font-sans antialiased`}>
         <SiteFrame>{children}</SiteFrame>
         <Analytics />
       </body>

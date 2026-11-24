@@ -1,10 +1,11 @@
 import { craft } from "@/lib/content"
+import SectionTag from "@/components/section-tag"
 
 export default function CraftSection() {
   return (
     <section id="oficio" className="relative scroll-mt-24 px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1280px]">
-        <p className="text-[11px] font-semibold tracking-[0.22em] text-brick uppercase">02 — Oficio</p>
+        <SectionTag label="Oficio" />
         <h2 className="font-display mt-4 max-w-2xl text-[clamp(2.4rem,6vw,4.5rem)] text-ink">
           Herramientas, no una sopa de chips.
         </h2>
